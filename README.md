@@ -59,7 +59,7 @@ You will need two terminal windows to run the backend and frontend simultaneousl
 
 * Terminal 1: Start the FastAPI Backend
 ```bash
-uvicorn main:app --reload
+uvicorn .\main.py
 ```
 
 * Terminal 2: Start the Streamlit Frontend
