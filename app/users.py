@@ -1,7 +1,7 @@
 import uuid
 from typing import Optional
 from fastapi import Depends, Request
-from fastapi_users import BaseUserManager, FastAPIUsers, UUIDIDMixin, models
+from fastapi_users import BaseUserManager, FastAPIUsers, UUIDIDMixin
 from fastapi_users.authentication import (
     AuthenticationBackend,
     BearerTransport,
@@ -13,7 +13,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-SECRET = os.getenv("JWT_SECRET_KEY")
+SECRET = os.getenv("JWT_SECRET_KEY", "a_very_secret_default_key_that_should_be_changed")
 
 
 class UserManager(UUIDIDMixin, BaseUserManager[User, uuid.UUID]):
@@ -36,7 +36,7 @@ async def get_user_manager(user_db: SQLAlchemyUserDatabase = Depends(get_user_db
 
 bearer_transport = BearerTransport(tokenUrl="auth/jwt/login")
 
-def get_jwt_strategy():
+def get_jwt_strategy() -> "JWTStrategy[User, uuid.UUID]":
     return JWTStrategy(secret=SECRET, lifetime_seconds=3600)
 
 auth_backend = AuthenticationBackend(
