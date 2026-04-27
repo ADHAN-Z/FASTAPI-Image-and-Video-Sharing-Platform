@@ -49,9 +49,19 @@ uv sync
 ** 3. Environment Variables
 Create a .env file in the root directory and add your secret keys:
 ```bash
-IMAGEKIT_PUBLIC_KEY=your_public_key
-IMAGEKIT_PRIVATE_KEY=your_private_key
-IMAGEKIT_URL=your_url
+IMAGEKIT_PRIVATE_KEY=''
+IMAGEKIT_PUBLIC_KEY=''
+IMAGEKIT_URL=''
+
+JWT_SECRET_KEY=''
+
+
+DATABASE_URL=''
+
+PUBLIC_BACKEND_URL=''
+
+PUBLIC_FRONTEND_URL=''
+
 ```
 
 ** 🏃‍♂️ Running the Application
