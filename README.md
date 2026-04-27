@@ -1,6 +1,6 @@
 # 📸 FastAPI & Streamlit Photo/Video Sharing App
 
-A production-ready, full-stack web application demonstrating advanced backend concepts using **FastAPI** and a dynamic frontend built with **Streamlit**. 
+A full-stack web application demonstrating advanced backend concepts using **FastAPI** and a dynamic frontend built with **Streamlit**. 
 
 Inspired by early Instagram, this project goes beyond the basics to implement robust features like JWT-based user authentication, asynchronous database integration, Pydantic data validation, and third-party media handling via ImageKit.
 
@@ -38,8 +38,8 @@ Before you begin, ensure you have met the following requirements:
 ```bash
 git clone [https://github.com/ADHAN-Z/FASTAPI-Image-and-Video-Sharing-Platform.git](https://github.com/ADHAN-Z/FASTAPI-Image-and-Video-Sharing-Platform.git)
 cd FASTAPI-Image-and-Video-Sharing-Platform
-
-**2. Install Dependencies
+```
+** 2. Install Dependencies
 This project uses uv for lightning-fast dependency management.
 ```bash
 # Create a virtual environment and sync dependencies
