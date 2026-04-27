@@ -11,7 +11,9 @@ import os
 import uuid
 import tempfile
 from app.users import auth_backend, current_active_user, fastapi_users
-
+from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -19,6 +21,15 @@ async def lifespan(app: FastAPI):
     yield
 
 app = FastAPI(lifespan=lifespan)
+
+# Add CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", os.getenv("PUBLIC_FRONTEND_URL")], # Put your frontend URL here
+    allow_credentials=True,
+    allow_methods=["*"], # Allows all methods (GET, POST, DELETE, etc.)
+    allow_headers=["*"], # Allows all headers
+)
 
 app.include_router(fastapi_users.get_auth_router(auth_backend), prefix='/auth/jwt', tags=["auth"])
 app.include_router(fastapi_users.get_register_router(UserRead, UserCreate), prefix="/auth", tags=["auth"])

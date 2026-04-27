@@ -3,9 +3,10 @@ import requests
 import base64
 import urllib.parse
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-
-API_URL = "https://my-fastapi-backend-4xjz.onrender.com" 
+API_URL = os.getenv("PUBLIC_BACKEND_URL") or "http://localhost:8000"
 
 st.set_page_config(page_title="Simple Social", layout="wide")
 
