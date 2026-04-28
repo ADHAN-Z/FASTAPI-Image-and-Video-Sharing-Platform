@@ -69,6 +69,8 @@ You will need two terminal windows to run the backend and frontend simultaneousl
 
 * Terminal 1: Start the FastAPI Backend
 ```bash
+python -m venv .venv
+pip install -r requirements.txt
 uvicorn .\main.py
 ```
 
